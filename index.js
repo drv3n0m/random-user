@@ -1,7 +1,7 @@
 const express = require("express");
 const userRoutes = require("./routes/v1/users.route.js");
 const app = express();
-const PORT = 4000;
+const port = 4000;
 
 app.use(express.json());
 
@@ -15,6 +15,4 @@ app.all("*", (req, res) => {
   res.send("OOPS!!! Not Found..");
 });
 
-app.listen(PORT, () => {
-  console.log(`server run at ${PORT}`);
-});
+app.listen(process.env.PORT || port);
